@@ -74,5 +74,3 @@ const updateTheme = function (theme, path, value) {
   const lastKey = parts[parts.length - 1]
   current[lastKey] = value
 }
-
-// Task 4
