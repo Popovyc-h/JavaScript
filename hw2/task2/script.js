@@ -41,7 +41,35 @@ const deepFreeze = function (obj) {
   return obj
 }
 
-const diffProfiles = function (original, update) {}
+const diffProfiles = function (original, update) {
+  let result = {}
+
+  for (const key in original) {
+    if (
+      typeof original[key] === 'object' &&
+      original[key] !== null &&
+      typeof update[key] === 'object' &&
+      update[key] !== null
+    ) {
+      const diff = diffProfiles(original[key], update[key])
+
+      if (Object.keys(diff).length > 0) {
+        result[key] = diff
+      }
+    } else if (original[key] !== update[key]) {
+      result[key] = {
+        from: original[key],
+        to: update[key],
+      }
+    }
+  }
+
+  return result
+}
+
+const mergeResult = mergeProfiles(profileFromForm, profileFromSocial, profileFromCRM)
+
+console.log(mergeResult)
 
 deepFreeze(profileFromCRM)
 
@@ -51,6 +79,6 @@ profileFromCRM.preferences.language = 'en'
 console.log(profileFromCRM.role)
 console.log(profileFromCRM.preferences.language)
 
-const mergeResult = mergeProfiles(profileFromForm, profileFromSocial, profileFromCRM)
-
-console.log(mergeResult)
+console.log(
+  diffProfiles({ name: 'Іван', age: 28, prefs: { lang: 'uk' } }, { name: 'Іван', age: 30, prefs: { lang: 'en' } }),
+)
