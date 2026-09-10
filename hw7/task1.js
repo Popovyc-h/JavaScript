@@ -148,39 +148,39 @@ function createTaskScheduler() {
   }
 }
 
-// const timerId = delayedGreeting('Олексій', 5000, (greeting, time) => {
-//   console.log(`${greeting} (Виконано о: ${time})`)
-// })
+const timerId = delayedGreeting('Олексій', 5000, (greeting, time) => {
+  console.log(`${greeting} (Виконано о: ${time})`)
+})
 
-// printNumbersInterval(1, 5, 1000)
-// printNumbersTimeout(10, 12, 500)
+printNumbersInterval(1, 5, 1000)
+printNumbersTimeout(10, 12, 500)
 
-// const countdown = createCountdown(
-//   5,
-//   (sec) => console.log(`Залишилось: ${sec} сек`),
-//   () => console.log('Час вичерпано!'),
-// )
+const countdown = createCountdown(
+  5,
+  (sec) => console.log(`Залишилось: ${sec} сек`),
+  () => console.log('Час вичерпано!'),
+)
 
-// setTimeout(() => {
-//   countdown.pause()
-//   console.log('pause')
-// }, 4000)
+setTimeout(() => {
+  countdown.pause()
+  console.log('pause')
+}, 4000)
 
-// setTimeout(() => {
-//   console.log('resume:')
-//   countdown.resume()
-// }, 6000)
+setTimeout(() => {
+  console.log('resume:')
+  countdown.resume()
+}, 6000)
 
-// let attempts = 0
-// pollWithDynamicInterval(
-//   (attempt) => {
-//     console.log(`Спроба #${attempt}`)
-//     return ++attempts === 3
-//   },
-//   500,
-//   4000,
-//   5,
-// )
+let attempts = 0
+pollWithDynamicInterval(
+  (attempt) => {
+    console.log(`Спроба #${attempt}`)
+    return ++attempts === 3
+  },
+  500,
+  4000,
+  5,
+)
 
 const scheduler = createTaskScheduler()
 
