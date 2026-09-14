@@ -201,8 +201,8 @@ console.log(user.checkPassword('123456'))
 console.log(user.getRole())
 
 const admin = AdminUser.createSuperAdmin('Тарас', 'taras@store.ua')
-console.log(admin.getRole()) // "admin"
-console.log(admin.permissions) // ['all']
+console.log(admin.getRole())
+console.log(admin.permissions)
 
 const cart = new ShoppingCart()
 cart.addItem(keyboard, 2)
