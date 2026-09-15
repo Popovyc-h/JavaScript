@@ -116,51 +116,50 @@ const promisify = (fn) => {
   }
 }
 
-// const err1 = new PropertyRequiredError('email')
-// console.log(err1.name)
-// console.log(err1.message)
-// console.log(err1.field)
-// console.log(err1.statusCode)
-// console.log(err1 instanceof ValidationError)
-// console.log(err1 instanceof AppError)
-// console.log(err1 instanceof Error)
+const err1 = new PropertyRequiredError('email')
+console.log(err1.name)
+console.log(err1.message)
+console.log(err1.field)
+console.log(err1.statusCode)
+console.log(err1 instanceof ValidationError)
+console.log(err1 instanceof AppError)
+console.log(err1 instanceof Error)
 
-// const validJson = JSON.stringify({ name: 'Олексій', email: 'alex@work.ua', age: 24 })
-// console.log(parseAndValidateUser(validJson))
+const validJson = JSON.stringify({ name: 'Олексій', email: 'alex@work.ua', age: 24 })
+console.log(parseAndValidateUser(validJson))
 
-// const missingFieldJson = JSON.stringify({ name: 'Анна', age: 20 })
-// console.log(parseAndValidateUser(missingFieldJson))
+const missingFieldJson = JSON.stringify({ name: 'Анна', age: 20 })
+console.log(parseAndValidateUser(missingFieldJson))
 
-// const underageJson = JSON.stringify({ name: 'Іван', email: 'ivan@test.ua', age: 16 })
-// console.log(parseAndValidateUser(underageJson))
+const underageJson = JSON.stringify({ name: 'Іван', email: 'ivan@test.ua', age: 16 })
+console.log(parseAndValidateUser(underageJson))
 
-// fetchUserFromDB(101, (err, user) => {
-//   if (err) {
-//     console.error('Помилка користувача:', err.message)
-//     return
-//   }
-//   fetchUserPermissions(user.role, (err, permissions) => {
-//     if (err) {
-//       console.error('Помилка прав:', err.message)
-//       return
-//     }
-//     logUserAccess(user.id, 'login', (err, logResult) => {
-//       if (err) {
-//         console.error('Помилка логування:', err.message)
-//         return
-//       }
-//       console.log('Успішний вхід через колбеки:', { user, permissions, logResult })
-//     })
-//   })
-// })
+fetchUserFromDB(101, (err, user) => {
+  if (err) {
+    console.error('Помилка користувача:', err.message)
+    return
+  }
+  fetchUserPermissions(user.role, (err, permissions) => {
+    if (err) {
+      console.error('Помилка прав:', err.message)
+      return
+    }
+    logUserAccess(user.id, 'login', (err, logResult) => {
+      if (err) {
+        console.error('Помилка логування:', err.message)
+        return
+      }
+      console.log('Успішний вхід через колбеки:', { user, permissions, logResult })
+    })
+  })
+})
 
-// const fetchUserFromDBPromise = promisify(fetchUserFromDB)
-// fetchUserFromDBPromise(101)
-//   .then((user) => console.log('Отримано користувача через Promise:', user.name))
-//   .catch((err) => console.error('Помилка:', err.message))
+const fetchUserFromDBPromise = promisify(fetchUserFromDB)
+fetchUserFromDBPromise(101)
+  .then((user) => console.log('Отримано користувача через Promise:', user.name))
+  .catch((err) => console.error('Помилка:', err.message))
 
 let sessionData = {}
-const fetchUserFromDBPromise = promisify(fetchUserFromDB)
 const fetchUserPermissionsPromise = promisify(fetchUserPermissions)
 const logUserAccessPromise = promisify(logUserAccess)
 
