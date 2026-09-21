@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="index.js" defer></script>
+    </head>
+    <body>
+        <div id="article-wrapper" class="article-container">
+            <header class="article-header">
+                <h1 id="article-title" data-category="javascript">Посібник з роботи з DOM-деревом</h1>
+                <p id="article-info" class="meta-info">Категорія: JS | Стан: Чернетка</p>
+            </header>
+
+            <nav id="table-of-contents" class="toc-box">
+                <h2 class="toc-heading">Зміст статті</h2>
+                <ul id="toc-list" class="toc-list"></ul>
+            </nav>
+
+            <main id="article-content" class="content">
+                <section class="content-section" data-section="intro">
+                    <h2 class="section-title">Вступ до об'єктної моделі документа</h2>
+                    <p class="paragraph">DOM представляє HTML-документ як ієрархічне дерево вузлів.</p>
+                    <blockquote class="quote" data-important="true">
+                        DOM дозволяє JavaScript динамічно змінювати контент сторінки.
+                    </blockquote>
+                </section>
+
+                <section class="content-section" data-section="navigation">
+                    <h2 class="section-title">Навігація по елементах дерева</h2>
+                    <p class="paragraph">
+                        Для переходу між елементами використовуються навігаційні властивості. Детальніше у
+                        <a href="/docs/navigation">внутрішній документації</a> або на
+                        <a href="https://developer.mozilla.org">зовнішньому порталі MDN</a>.
+                    </p>
+                </section>
+
+                <section class="content-section" data-section="manipulation">
+                    <h2 class="section-title">Методи внесення змін у документ</h2>
+                    <p class="paragraph">
+                        Сучасні методи дозволяють зручно вставляти вузли: append, prepend, after, before. Також
+                        перегляньте <a href="https://javascript.info">підручник з JavaScript</a>.
+                    </p>
+                </section>
+            </main>
+
+            <footer id="article-footer" class="article-footer">
+                <p id="stats-counter">Статистика: Секцій: 0 | Символів: 0</p>
+            </footer>
+        </div>
+    </body>
+</html>
